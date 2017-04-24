@@ -1,6 +1,7 @@
 package css.cis3334.fishlocatorfirebase;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,6 +11,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -19,6 +22,8 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+     FirebaseAuth mAuth;
+     FirebaseAuth.AuthStateListener mAuthListener;
     Button buttonAdd, buttonDetails, buttonDelete;          // two button widgets
     ListView listViewFish;                                  // listview to display all the fish in the database
     ArrayAdapter<Fish> fishAdapter;
@@ -32,6 +37,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    // User is signed out
+                    Log.d("CSS3334", "onAuthStateChanged - User NOT is signed in");
+                    Intent signInIntent = new Intent(getBaseContext(), LoginActivity.class);
+                    startActivity(signInIntent);
+                }
+            }
+        };
 
         setupFirebaseDataChange();
         setupListView();
@@ -59,7 +79,29 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    /**
+     * onStart is attaching the listener for the authorization on this method.
+     */
+    @Override
+    public void onStart() { //method header of no type and returns void
+        super.onStart();
+        mAuth.addAuthStateListener(mAuthListener); //FirebaseAuth object to access addAuthStateListener method
+        // to add a authorization state listener using FirebaseAuth.AuthStateListener
+        // as the parameter for the method call
+    }
 
+    /**
+     * onStop removes the attached listener for the authorization
+     */
+    @Override
+    public void onStop() { //method header of no type and returns void
+        super.onStop();
+        if (mAuthListener != null) { //As long as  FirebaseAuth.AuthStateListener object is not null...
+            mAuth.removeAuthStateListener(mAuthListener); //FirebaseAuth object to access removeAuthStateListener method
+            // to remove a authorization state listener using FirebaseAuth.AuthStateListener
+            // as the parameter for the method call
+        }
+    }
     private void setupListView() {
         listViewFish = (ListView) findViewById(R.id.ListViewFish);
         listViewFish.setOnItemClickListener(new AdapterView.OnItemClickListener() {

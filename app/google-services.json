@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "1018372229434",
-    "firebase_url": "https://unit13-firebasefish-krehliv-ma.firebaseio.com",
-    "project_id": "unit13-firebasefish-krehliv-ma",
-    "storage_bucket": "unit13-firebasefish-krehliv-ma.appspot.com"
+    "project_number": "488537721909",
+    "firebase_url": "https://unit13-firebasefish.firebaseio.com",
+    "project_id": "unit13-firebasefish",
+    "storage_bucket": "unit13-firebasefish.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1018372229434:android:a1695d7ecc99ba5e",
+        "mobilesdk_app_id": "1:488537721909:android:a1695d7ecc99ba5e",
         "android_client_info": {
           "package_name": "css.cis3334.fishlocatorfirebase"
         }
       },
       "oauth_client": [
         {
-          "client_id": "1018372229434-hrssd91210uqhrqe1t3dnfrbqa5k5hk1.apps.googleusercontent.com",
+          "client_id": "488537721909-e5aou5qc5r1n6oaohneekgh2m9jjuvtr.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "css.cis3334.fishlocatorfirebase",
-            "certificate_hash": "bb16d97d008168dec970c6b35884d79cf35b7385"
+            "certificate_hash": "383a1994b52faeffd0dec7b93ad373ee5862d2e1"
           }
         },
         {
-          "client_id": "1018372229434-pteetij0iilpuc0mjagvb1p6n6cphfkm.apps.googleusercontent.com",
+          "client_id": "488537721909-c3247itj646tgksqqn3gsfea48c5dhs8.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBqDDlEYOrMpmS7HSMQT0E8dhVzT2LcYMU"
+          "current_key": "AIzaSyBF3e0KId2Zz5JwIZV9FJS5UlQ4CiWrmv0"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "1018372229434-pteetij0iilpuc0mjagvb1p6n6cphfkm.apps.googleusercontent.com",
+              "client_id": "488537721909-c3247itj646tgksqqn3gsfea48c5dhs8.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
